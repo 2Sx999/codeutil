@@ -7,6 +7,8 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.beans.factory.annotation.Autowired;
 import [path_1].[path_2].[path_3].pojo.[Table2];
 import [path_1].[path_2].[path_3].service.[Table2]Service;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 
 import com.easylinking.color.util.PageResult;
 import com.easylinking.color.util.Result;
@@ -26,7 +28,7 @@ public class [Table2]Controller {
 	 * 返回全部列表
 	 * @return
 	 */
-	@RequestMapping("/findAll")
+	@GetMapping("/findAll")
 	public List<[Table2]> findAll(){
 		return [table2]Service.findAll();
 	}
@@ -36,7 +38,7 @@ public class [Table2]Controller {
 	 * 返回全部列表
 	 * @return
 	 */
-	@RequestMapping("/findPage")
+	@GetMapping("/findPage")
 	public PageResult  findPage(int page,int rows){			
 		return [table2]Service.findPage(page, rows);
 	}
@@ -46,7 +48,7 @@ public class [Table2]Controller {
 	 * @param [table2]
 	 * @return
 	 */
-	@RequestMapping("/add")
+	@PostMapping("/add")
 	public Result add(@RequestBody [Table2] [table2]){
 		try {
 			[table2]Service.add([table2]);
@@ -62,7 +64,7 @@ public class [Table2]Controller {
 	 * @param [table2]
 	 * @return
 	 */
-	@RequestMapping("/update")
+	@PostMapping("/update")
 	public Result update(@RequestBody [Table2] [table2]){
 		try {
 			[table2]Service.update([table2]);
@@ -78,7 +80,7 @@ public class [Table2]Controller {
 	 * @param id
 	 * @return
 	 */
-	@RequestMapping("/findOne")
+	@GetMapping("/findOne")
 	public [Table2] findOne(String id){
 		return [table2]Service.findOne(id);		
 	}
@@ -88,7 +90,7 @@ public class [Table2]Controller {
 	 * @param ids
 	 * @return
 	 */
-	@RequestMapping("/delete")
+	@GetMapping("/delete")
 	public Result delete(String [] ids){
 		try {
 			[table2]Service.delete(ids);
@@ -106,7 +108,7 @@ public class [Table2]Controller {
 	 * @param rows
 	 * @return
 	 */
-	@RequestMapping("/search")
+	@PostMapping("/search")
 	public PageResult search(@RequestBody [Table2] [table2], int page, int rows  ){
 		return [table2]Service.findPage([table2], page, rows);		
 	}
